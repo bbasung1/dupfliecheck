@@ -17,16 +17,19 @@ for a in md:
     for i, name in enumerate(md):
         if(a == name):
             k.append(i)
+            t.write("find index:"+'\n'.join([str(k)]))
     for i in k:
+        t.write("current position:"+'\n'.join([str(i)]))
         if i ==0:
             continue
         f.write(nm[0]+"와"+nm[i]+"가 같은 파일인것 같습니다. MD5="+md[i]+"\n")
     for i in k:
+        t.write("current delposition:"+'\n'.join([str(i)]))
         del(nm[i])
         del(md[i])
-        t.write(" ".join(nm))
-        t.write(" ".join(md))
-t.write(" ".join(nm))
-t.write(" ".join(md))
+        t.write("check nmdel:"+"\n".join(nm))
+        t.write("check mddel:"+"\n".join(md))
+t.write("final nml:"+"\n".join(nm))
+t.write("final md:"+"\n".join(md))
 t.close()
 f.close()
