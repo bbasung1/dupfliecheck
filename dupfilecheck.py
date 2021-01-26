@@ -10,3 +10,5 @@ for (path, dir, files) in os.walk("./"):
         data = f.read()
         md.append(hashlib.md5(data).hexdigest())
         nm.append(os.path.join(path, fn))
+for a in nm:
+    print(1)
