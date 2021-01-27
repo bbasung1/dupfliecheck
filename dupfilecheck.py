@@ -15,13 +15,17 @@ t=open("debug.txt","w")
 k=1
 for a in md:
     for i, name in enumerate(md[k:]):
+        t.write("\ncurrent a1:"+str(a)+"\n")
+        t.write("\ncurrent i1:"+str(i)+"\n")
         if(a == name):
+            t.write("\ncurrent a2:"+str(a)+"\n")
+            t.write("\ncurrent i2:"+str(a)+"\n")
             f.write(nm[0]+"와"+nm[i]+"가 같은 파일인것 같습니다. MD5="+md[i]+"\n")
-            t.write("current delposition:"+'\n'.join([str(i)]))
-            t.write("check nmdel:"+"\n".join(nm))
-            t.write("check mddel:"+"\n".join(md))
+            t.write("\ncurrent delposition:"+'\n'.join([str(i)]))
+            t.write("\ncheck nmdel:"+"\n".join(nm))
+            t.write("\ncheck mddel:"+"\n".join(md))
         k+=1
-t.write("final nml:"+"\n".join(nm))
-t.write("final md:"+"\n".join(md))
+t.write("\nfinal nml:"+"\n".join(nm))
+t.write("\nfinal md:"+"\n".join(md))
 t.close()
 f.close()
