@@ -22,7 +22,7 @@ for a in md:
         if(a == name):
             t.write("\ncurrent a2:"+str(a)+"\n")
             #t.write("\ncurrent i2:"+str(i)+"\n")
-            f.write(nm[0]+"와"+nm[md.index(name)]+"가 같은 파일인것 같습니다. MD5="+md[md.index(name)]+"\n")
+            f.write(nm[md.index(name)]+"와"+nm[md.index(name,md.index(name))]+"가 같은 파일인것 같습니다. MD5="+md[md.index(name)]+"\n")
             #t.write("\ncurrent delposition:"+'\n'.join([str(i+k)]))
             #t.write("\ncheck nmdel:"+"\n".join(nm))
             #t.write("\ncheck mddel:"+"\n".join(md))
