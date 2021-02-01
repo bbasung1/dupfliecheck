@@ -2,31 +2,22 @@ import os
 import hashlib
 nm = []
 md = []
+k = open("log.txt", "w")
 for (path, dir, files) in os.walk("./"):
     for fn in files:
         if(os.path.isdir(os.path.join(path, fn))):
             continue
         f = open(os.path.join(path, fn), "rb")
         data = f.read()
-        md.append(hashlib.md5(data).hexdigest())
-        nm.append(os.path.join(path, fn))
-f = open("log.txt", "w")
-t=open("debug.txt","w")
-k=1
-for a in range(0,len(md)-1):
-    for name in range(a+1,len(md)):
-        #t.write("\ncurrent a1:"+str(a)+"\n")
-        #t.write("\ncurrent i1:"+str(i)+"\n")
-        #t.write("\ncurrent k1:"+str(k)+"\n")
-        #t.write("\ncurrent r1:"+str(md.index(name))+"\n")
-        if(md[a] == md[name]):
-            #t.write("\ncurrent a2:"+str(a)+"\n")
-            #t.write("\ncurrent i2:"+str(i)+"\n")
-            f.write(nm[a]+"와"+nm[name]+"가 같은 파일인것 같습니다. MD5="+md[a]+"\n")
-            #t.write("\ncurrent delposition:"+'\n'.join([str(i+k)]))
-            #t.write("\ncheck nmdel:"+"\n".join(nm))
-            #t.write("\ncheck mddel:"+"\n".join(md))
-t.write("\nfinal nml:"+"\n".join(nm))
-t.write("\nfinal md:"+"\n".join(md))
-t.close()
-f.close()
+        md5=(hashlib.md5(data).hexdigest())
+        #nm.append(os.path.join(path, fn))
+        co=0
+        for i in md:
+            if(i==md5):
+                ind=md.index(i)
+                k.write(os.path.join(path, fn)+"와"+nm[ind]+"가 같은 파일인것 같습니다. md5="+i+"\n")
+                co+=1
+        if(co==0):
+            nm.append(os.path.join(path, fn))
+            md.append(data)
+k.close()
