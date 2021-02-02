@@ -1,1 +1,3 @@
-
+./.git/refs/remotes/origin/master와./.git/refs/heads/master가 같은 파일인거 같습니다. md5=0fe40e63c1bc84d3071f518696bbef8c
+./.git/logs/refs/heads/master와./.git/logs/HEAD가 같은 파일인거 같습니다. md5=212e36614fd4f59716756aab529aabf1
+./umd/평가 및 가산점 기준.txt와./평가 및 가산점 기준.txt가 같은 파일인거 같습니다. md5=5859f716f9e22d538e727a05ee1e4b90

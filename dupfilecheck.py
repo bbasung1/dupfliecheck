@@ -12,11 +12,11 @@ for (path, dir, files) in os.walk("./"):
         pt=os.path.join(path, fn)
         if(os.path.isdir(pt)):
             continue
+        print(pt+"분석중....")
         f = open(pt, "rb")
         data = f.read()
         md5=(hashlib.md5(data).hexdigest())
-        print(pt)
-        print(md5)
+        f.close()
         #nm.append(os.path.join(path, fn))
         cur.execute("insert into temp values('"+pt+"','"+md5+"')")
         con.commit()
@@ -31,5 +31,7 @@ for (path, dir, files) in os.walk("./"):
                 continue
             k.write(pt+"와"+data1+"가 같은 파일인거 같습니다. md5="+data2+"\n")
             print("here")
+            cur.execute("delete from temp where rowid not in(select min(rowid) from temp group by md5)")
+            con.commit()
 k.close()
 con.close()
