@@ -1,6 +1,8 @@
 import os
 import hashlib
 import sqlite3
+import timeit
+strarttime=timeit.default_timer()
 if os.path.exists('temp.db'):
     os.remove('temp.db')
 con=sqlite3.connect('temp.db')
@@ -35,14 +37,14 @@ for (path, dir, files) in os.walk("./"):
             k.write(pt+"와"+data1+"가 같은 파일인거 같습니다. md5="+data2+"\n")
             if(choose==2):
                 cur.execute("select * from temp where rowid in(select min(rowid) from temp where md5=\""+md5+"\")")
-                fir=cur.fetchone()
-                suvname=str(fir[0])
+                row=cur.fetchone()
+                suvname=str(row[0])
                 cur.execute("select * from temp where rowid not in(select min(rowid) from temp group by md5)")
                 while(True):
-                    fir=cur.fetchone()
-                    if fir==None:
+                    row=cur.fetchone()
+                    if row==None:
                         break
-                    test=str(fir[0])
+                    test=str(row[0])
                     if(os.path.getsize(suvname)==os.path.getsize(test)):
                         os.remove(test)
             cur.execute("delete from temp where rowid not in(select min(rowid) from temp group by md5)")
@@ -50,3 +52,5 @@ for (path, dir, files) in os.walk("./"):
         print("분석 완료")
 k.close()
 con.close()
+endtime=timeit.default_timer()
+print("%f"%(endtime - strarttime))
