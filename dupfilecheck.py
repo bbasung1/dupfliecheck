@@ -13,12 +13,15 @@ for (path, dir, files) in os.walk("./"):
         if(os.path.isdir(pt)):
             continue
         print(pt+"분석중....")
-        f = open(pt, "rb")
-        data = f.read()
-        md5=(hashlib.md5(data).hexdigest())
+        with open(pt, "rb") as f:
+            data=hashlib.md5()
+            while test := f.read(8192):
+                data.update(test)
+        md5=data.hexdigest()
         f.close()
         #nm.append(os.path.join(path, fn))
-        cur.execute("insert into temp values('"+pt+"','"+md5+"')")
+        print(md5)
+        cur.execute("insert into temp values(\""+pt+"\",'"+md5+"')")
         con.commit()
         cur.execute("select * from temp where md5='"+md5+"'")
         while(True):
