@@ -1,4 +1,1 @@
-./평가 및 가산점 기준.txt와./umd\평가 및 가산점 기준.txt가 같은 파일인것 같습니다. MD5=2bf5693b46a86f2acc2237641fda750c
-./.git\logs\HEAD와./.git\logs\refs\heads\master가 같은 파일인것 같습니다. MD5=4f40f9ea1f38423f12d51d16ead96835
-./.git\logs\HEAD와./.git\logs\refs\remotes\origin\HEAD가 같은 파일인것 같습니다. MD5=4f40f9ea1f38423f12d51d16ead96835
-./.git\logs\refs\heads\master와./.git\logs\refs\remotes\origin\HEAD가 같은 파일인것 같습니다. MD5=4f40f9ea1f38423f12d51d16ead96835
+

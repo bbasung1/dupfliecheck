@@ -18,14 +18,18 @@ for (path, dir, files) in os.walk("./"):
         print(pt)
         print(md5)
         #nm.append(os.path.join(path, fn))
-        try:
-            cur.execute("select * from temp where md5="+md5)
+        cur.execute("insert into temp values('"+pt+"','"+md5+"')")
+        con.commit()
+        cur.execute("select * from temp where md5='"+md5+"'")
+        while(True):
             row=cur.fetchone()
+            if row==None:
+                break
             data1=row[0]
             data2=row[1]
-            f.write(pt+"와"+data1+"가 같은 파일인거 같습니다. md5="+data2+"\n")
-        except:
-            cur.execute("insert into temp values('"+pt+"','"+md5+"')")
-            con.commit()
+            if(data1==pt and data2==md5):
+                continue
+            k.write(pt+"와"+data1+"가 같은 파일인거 같습니다. md5="+data2+"\n")
+            print("here")
 k.close()
 con.close()
