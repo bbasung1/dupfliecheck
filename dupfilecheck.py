@@ -9,7 +9,7 @@ con=sqlite3.connect('temp.db')
 cur=con.cursor()
 cur.execute("create table temp(name text,md5 text)")
 k = open("log.txt", "w")
-choose=input("같은 파일인지 분석만 하시겠습니까?파일 크기까지 맞을 시 삭제하시겠습니까?(1/2):")
+choose=int(input("같은 파일인지 분석만 하시겠습니까?파일 크기까지 맞을 시 삭제하시겠습니까?(1/2):"))
 for (path, dir, files) in os.walk("./"):
     for fn in files:
         pt=os.path.join(path, fn)
@@ -33,13 +33,13 @@ for (path, dir, files) in os.walk("./"):
         data1=row[0]
         data2=row[1]
         k.write(pt+"와"+data1+"가 같은 파일인거 같습니다. md5="+data2+"\n")
-        if(choose==2):
+        if choose==2:
             cur.execute("select * from temp where rowid in(select min(rowid) from temp where md5=\""+md5+"\")")
             row=cur.fetchone()
             suvname=str(row[0])
             print(suvname)
             if(os.path.getsize(suvname)==os.path.getsize(pt)):
-                os.remove(test)
+                os.remove(pt)
         cur.execute("delete from temp where rowid not in(select min(rowid) from temp group by md5)")
         con.commit()
         print("분석 완료")
