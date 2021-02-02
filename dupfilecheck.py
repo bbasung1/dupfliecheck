@@ -45,6 +45,7 @@ for (path, dir, files) in os.walk("./"):
                     test=str(fir[0])
                     if(os.path.getsize(suvname)==os.path.getsize(test)):
                         os.remove(test)
+                        k.write(test+"를 삭제하였습니다.\n") 
             cur.execute("delete from temp where rowid not in(select min(rowid) from temp group by md5)")
             con.commit()
         print("분석 완료")
