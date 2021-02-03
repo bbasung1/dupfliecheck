@@ -16,10 +16,23 @@ for (path, dir, files) in os.walk(sergdir):
         print(tp)
         if(os.path.isdir(pt)):
             continue
+        tmcp=""
         if "image" in tp:
-            shutil.copy2(pt,movdir+"/photo/"+fn)
+            tmcp=movdir+"/photo/"+fn
         elif "audio" in tp:
-            shutil.copy2(pt,movdir+"/music/"+fn)
+            tmcp=movdir+"/music/"+fn
         elif "video" in tp:
-            shutil.copy2(pt,movdir+"/movie/"+fn)
+            tmcp=movdir+"/movie/"+fn
+        else:
+            continue
+        ct=0
+        if os.path.exists(tmcp):
+            s=os.path.splitext(tmcp)
+            wa=s[0]
+            wa+="ver"
+            while os.path.exists(wa+str(ct)+s[1]):
+                ct+=1
+            tmcp=wa+str(ct)+s[1]
+        print(tmcp)
+        shutil.copy2(pt,tmcp)
 #audio,video
