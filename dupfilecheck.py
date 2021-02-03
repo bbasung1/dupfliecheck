@@ -9,7 +9,7 @@ if os.name=='nt':
         os.mkdir("C:/tmp")
     dbdir="c:/tmp/tmpdb"
 elif os.name=='posix':
-    dbdir="/temp/temp.db"
+    dbdir="/tmp/temp.db"
 if os.path.exists(dbdir):
     os.remove(dbdir)
 con=sqlite3.connect(dbdir)
