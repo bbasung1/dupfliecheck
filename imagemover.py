@@ -12,6 +12,12 @@ for (path, dir, files) in os.walk(sergdir):
     for fn in files:
         pt=os.path.join(path, fn)
         print(pt)
+        if   "$RECYCLE.BIN" in pt:
+            continue
+        if "Steam" in pt:
+            continue
+        if "nexon" in pt:
+            continue
         tp=str(mimetypes.guess_type(pt)[0])
         print(tp)
         if(os.path.isdir(pt)):
