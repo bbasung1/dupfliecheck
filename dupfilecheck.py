@@ -3,9 +3,16 @@ import hashlib
 import sqlite3
 import timeit
 strarttime=timeit.default_timer()
-if os.path.exists('temp.db'):
-    os.remove('temp.db')
-con=sqlite3.connect('temp.db')
+dbdir=""
+if os.name=='nt':
+    if not os.path.exists("C:/tmp"):
+        os.mkdir("C:/tmp")
+    dbdir="c:/tmp/tmpdb"
+elif os.name=='posix':
+    dbdir="/temp/temp.db"
+if os.path.exists(dbdir):
+    os.remove(dbdir)
+con=sqlite3.connect(dbdir)
 cur=con.cursor()
 cur.execute("create table temp(name text,md5 text)")
 k = open("log.txt", "w")
