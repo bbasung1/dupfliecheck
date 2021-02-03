@@ -19,8 +19,8 @@ for (path, dir, files) in os.walk("./"):
         md5=data.hexdigest()
         f.close()
         print(md5)
-        if md5.count(md5)==0:
-            md5.append(md)
+        if md.count(md5)==0:
+            md.append(md5)
             name.append(pt)
             print("분석 완료")
             continue
