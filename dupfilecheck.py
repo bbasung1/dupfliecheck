@@ -26,7 +26,7 @@ for (path, dir, files) in os.walk("./"):
             continue
         k.write(pt+"와"+name[md.index(md5)]+"가 같은 파일인거 같습니다. md5="+md5+"\n")
         if choose==2:
-            if(os.path.getsize(name[md.index(md5)])=os.path.getsize(pt)):
+            if(os.path.getsize(name[md.index(md5)])==os.path.getsize(pt)):
                 os.remove(pt)
         print("분석 완료")
 k.close()
