@@ -1,4 +1,1 @@
-./.git/refs/heads/master와./.git/ORIG_HEAD가 같은 파일인거 같습니다. md5=bb6b0dacb6958779ecbad8b0aefcf78a
-./.git/refs/remotes/origin/master와./.git/ORIG_HEAD가 같은 파일인거 같습니다. md5=bb6b0dacb6958779ecbad8b0aefcf78a
-./.git/logs/refs/heads/master와./.git/logs/HEAD가 같은 파일인거 같습니다. md5=3bac6582a95a24c08526fa7eec141d37
-./umd/평가 및 가산점 기준.txt와./평가 및 가산점 기준.txt가 같은 파일인거 같습니다. md5=5859f716f9e22d538e727a05ee1e4b90
+F:/외장80G복제/사진\guam\test\video-2011-07-26-09-22-09.3gp와F:/외장80G복제/사진\video-2011-07-26-09-22-09.3gp가 같은 파일인거 같습니다. md5=0d989d5cdffc442764e34c754820fdad
