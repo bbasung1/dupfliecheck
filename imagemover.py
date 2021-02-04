@@ -10,14 +10,16 @@ os.makedirs(movdir+"/movie",exist_ok=True)
 os.makedirs(movdir+"/music",exist_ok=True)
 for (path, dir, files) in os.walk(sergdir):
     for fn in files:
+        c=0
         pt=os.path.join(path, fn)
         print(pt)
-        if   "$RECYCLE.BIN" in pt:
-            continue
-        if "Steam" in pt:
-            continue
-        if "nexon" in pt:
-            continue
+        exclist=["$RECYCLE.BIN","Steam","nexon","닌텐도"]
+        for i in exclist:
+           if i in pt:
+                c=1
+                break
+        if c==1:
+                continue
         tp=str(mimetypes.guess_type(pt)[0])
         print(tp)
         if(os.path.isdir(pt)):
@@ -28,6 +30,13 @@ for (path, dir, files) in os.walk(sergdir):
         elif "audio" in tp:
             tmcp=movdir+"/music/"+fn
         elif "video" in tp:
+            exclist=["XviD","H.264","720p","1080p"]
+            for i in exclist:
+                if i in pt:
+                    c=1
+                    break
+            if c==1:
+                continue
             tmcp=movdir+"/movie/"+fn
         else:
             continue
