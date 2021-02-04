@@ -33,22 +33,7 @@ for (path, dir, files) in os.walk(sergdir):
         k.write(pt+"와"+name[md.index(md5)]+"가 같은 파일인거 같습니다. md5="+md5+"\n")
         #print(os.path.basename(pt))
         if choose==2:
-            if os.path.basename(name[md.index(md5)])!=os.path.basename(pt):
-                 s=os.path.splitext(pt)
-                 wa=s[0]
-                 wa+="v"
-                 tmcp=wa+s[1]
-                 os.rename(pt,tmcp)
-                 pt=tmcp
-            s=os.path.basename(pt)
-            tmcp=movdir+"/tmp/"+s
-            ct=0
-            if os.path.exists(tmcp):
-                s=os.path.splitext(tmcp)
-                wa=s[0]
-                while os.path.exists(wa+str(ct)+s[1]):
-                    ct+=1
-                tmcp=wa+str(ct)+s[1]
+            tmcp=movdir+"/tmp/"+os.path.basename(pt)
             shutil.move(pt,tmcp)
         print("분석 완료")
 k.close()
