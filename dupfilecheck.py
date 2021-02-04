@@ -9,11 +9,13 @@ k = open("log.txt", "w")
 sergdir=input("검색하려는 디렉토리의 이름은?:")
 movdir=input("중복값을 옮기려는 디렉토리의 이름은?:")
 os.makedirs(movdir+"/tmp",exist_ok=True)
-choose=int(input("같은 파일인지 분석만 하시겠습니까?파일 크기까지 맞을 시 삭제하시겠습니까?(1/2):"))
+choose=int(input("같은 파일인지 분석만 하시겠습니까?파일 크기까지 맞을 시 tmp 폴더로 이동시키겠습니까?(1/2):"))
 count=0
 for (path, dir, files) in os.walk(sergdir):
     for fn in files:
         pt=os.path.join(path, fn)
+        if "tmp" in pt:
+            break
         if(os.path.isdir(pt)):
             continue
         print(pt+"분석중....")
