@@ -9,4 +9,5 @@ for (path, dir, files) in os.walk(tardir):
             continue
         test=time.gmtime(os.path.getmtime(os.path.join(path, fn)))
         os.makedirs(tardir+"/"+str(test.tm_year),exist_ok=True)
+        print(fn+"이동중...")
         shutil.move(pt,(tardir+"/"+str(test.tm_year)+"/"+fn))
