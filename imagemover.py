@@ -20,7 +20,7 @@ for (path, dir, files) in os.walk(sergdir):
             print(pt)
         except UnicodeEncodeError:
             print("unicode error")
-        exclist=["$RECYCLE.BIN","Steam","nexon","닌텐도","Temporary",".gif",".asf",".tif",".ra",".ico","wmf","AIX",".GIF",".bmp"]
+        exclist=["$RECYCLE.BIN","Steam","nexon","닌텐도","Temporary",".gif",".asf",".tif",".ra",".ico","wmf","AIX",".GIF",".bmp","Cache","Firefox\Profiles"]
         for i in exclist:
            if i in pt:
                 c=1
@@ -47,7 +47,7 @@ for (path, dir, files) in os.walk(sergdir):
         elif "audio" in tp:
             tmcp=movdir+"/music/"+fn
         elif "video" in tp:
-            exclist=["XviD","H.264","720p","1080p"]
+            exclist=["XviD",".264","720p","1080p","Xvid"]
             for i in exclist:
                 if i in pt:
                     c=1
