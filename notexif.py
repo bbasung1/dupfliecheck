@@ -1,6 +1,7 @@
 import os
 from PIL import Image
 #install command:pip3 install pillow
+#contributhon test
 import shutil
 os.makedirs("E:/gather/notexif",exist_ok=True)
 for (path, dir, files) in os.walk("E:/gather/photo"):
